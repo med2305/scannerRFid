@@ -9,7 +9,7 @@ html
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 87vh;
+        min-height: 100vh;
         margin: 0;
       }
       body::before {
@@ -28,18 +28,24 @@ html
         border-bottom: 1px solid #000000;
         border-top: 1px solid #000000;
       }
+      .table th {
+        background-color: #e6e6e6;
+
+      }
       .table {
         margin-top: 50px;
       }
-      .table tr.hour-in-empty td {
-        background-color: white;
+      .green {
+        background-color: #7edb73;
+      }
+      .red {
+        background-color: #ce9c29;
       }
   body
     .container
       table.table
         thead
           tr
-            th(scope='col') #
             th(scope='col') Date
             th(scope='col') Time
             th(scope='col') Leadset
@@ -48,11 +54,11 @@ html
             th(scope='col') Hour_out
         tbody
           each val, index in data
-            tr(class=val.Hour_in.trim() === '' ? 'hour-in-empty' : '')
-              th(scope='row')= index + 1
+            tr(class=(val.Hour_in && val.Hour_in.trim() === '') ? 'hour-in-empty' : '')
               td= val.Date
               td= val.Time
               td= val.Leadset
               td= val.BatchSize
-              td= val.Hour_in
-              td= val.Hour_out
+              td(class=val.Hour_in ? 'green' : '')= val.Hour_in
+              td(class=val.Hour_out ? 'red' : '')= val.Hour_out
+stackpath.bootstrapcdn.com

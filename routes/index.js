@@ -70,4 +70,21 @@ router.post('/login', function (req, res) {
   }
 });
 
+// router.post('/data', (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   console.log("testtttttt");
+//   // Authenticate user
+//   authenticateUser(username, password, (error, user) => {
+//     if (error || !user) {
+//       // Authentication failed
+//       res.redirect('/');
+//     } else {
+//       // Authentication succeeded
+//       req.session.userId = user.id;
+//       res.redirect('/data');
+//     }
+//   });
+// });
+
 module.exports = router;

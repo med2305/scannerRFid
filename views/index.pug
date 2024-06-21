@@ -1,31 +1,33 @@
 doctype html
 html
-    head
-        title Login Page
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
-        style.
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 87vh;
-                margin: 0;
-                background-image: url('/images/background.jpg');
-                background-size: cover;
-                background-position: center;
-            }
-    body
-        .container
-            .row.justify-content-center
-                .col-md-4
-                    .card
-                        .card-body
-                            h5.card-title.text-center Login
-                            form(action='/login', method='post')
-                                .form-group
-                                    label(for='username') Username
-                                    input#username.form-control(type='text', placeholder='Enter username', name='username')
-                                .form-group
-                                    label(for='password') Password
-                                    input#password.form-control(type='password', placeholder='Password', name='password')
-                                button.btn.btn-primary.btn-block(type='submit') Login
+  head
+    title Login Page
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+    style.
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 87vh;
+        margin: 0;
+        background-image: url('/images/background.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+  body
+    .container
+      if message
+        .alert.alert-danger #{message}
+      .row.justify-content-center
+        .col-md-4
+          .card
+            .card-body
+              h5.card-title.text-center Login
+              form(action='/login', method='post')
+                .form-group
+                  label(for='username') Username
+                  input#username.form-control(type='text', placeholder='Enter username', name='username')
+                .form-group
+                  label(for='password') Password
+                  input#password.form-control(type='password', placeholder='Password', name='password')
+                button.btn.btn-primary.btn-block(type='submit') Login
